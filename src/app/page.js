@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { GRIDS } from './constants';
 import { useTransition } from '@react-spring/web';
-import FollowingCursor from './components/FollowingCursor';
+import FollowingCursor from '../components/FollowingCursor';
 
 const MemoizedFollowingCursor = React.memo(FollowingCursor);
 
@@ -18,6 +18,7 @@ export default function Home() {
   return (
     <>
       {transitions((style, item) => {
+        console.log('transitions: ', transitions);
         const Grid = item.Component;
         return <Grid setCurrentGrid={setCurrentGrid} animatedStyles={style} />;
       })}

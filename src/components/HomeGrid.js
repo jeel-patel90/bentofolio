@@ -8,7 +8,7 @@ import Resume from "./Resume"
 import Blog from "./Blog"
 import Contact from "./Contact"
 import Misc from "./Misc"
-import { GRIDS } from "../constants"
+import { GRIDS } from "../app/constants"
 
 export default function HomeGrid({ setCurrentGrid, animatedStyles }) {
   const [nameIdx, setNameIdx] = useState(0)

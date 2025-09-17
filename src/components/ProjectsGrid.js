@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react"
 import { useTrail, animated, easings } from "@react-spring/web"
+import { GRIDS } from "../app/constants"
 
-import WorkExperience from "./WorkExperience"
-import Projects from "./Projects"
-import Education from "./Education"
-import Resume from "./Resume"
-import Blog from "./Blog"
-import Contact from "./Contact"
-import Misc from "./Misc"
-import { GRIDS } from "../constants"
-
-export default function WorkGrid({ setCurrentGrid, animatedStyles }) {
+export default function ProjectsGrid({ setCurrentGrid, animatedStyles }) {
   const [nameIdx, setNameIdx] = useState(0)
-  const name = "Work Experience".split("")
+  const name = "Projects".split("")
 
   const [subheadingIdx, setSubheadingIdx] = useState(0)
-  const subheading = "Here are the places I've worked at over the years".split(
-    ""
-  )
+  const subheading =
+    "Here are a few personal projects I've worked on over the years".split("")
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -34,7 +25,7 @@ export default function WorkGrid({ setCurrentGrid, animatedStyles }) {
     }
   })
 
-  const trails = useTrail(5, {
+  const trails = useTrail(7, {
     from: { scale: 0 },
     to: { scale: 1 },
     leave: { scale: 1 },
@@ -48,21 +39,21 @@ export default function WorkGrid({ setCurrentGrid, animatedStyles }) {
     <animated.div className='grid grid-cols-1 lg:grid-cols-9 lg:grid-rows-9 w-screen lg:h-screen p-5 gap-5 bg-stone-200'>
       <animated.div
         style={animatedStyles}
-        className='row-start-4 lg:row-span-3 lg:col-span-4'
+        className='row-start-4 lg:row-span-3 lg:col-span-5'
       >
         <animated.div
           style={trails[1]}
-          className='w-full h-full bg-[#BC4749] border border-black'
+          className='w-full h-full bg-[#A7C957] border border-black'
         ></animated.div>
       </animated.div>
 
       <animated.div
         style={animatedStyles}
-        className='lg:row-span-3 lg:col-span-5'
+        className='lg:row-span-3 lg:col-span-4'
       >
         <animated.div
           style={trails[3]}
-          className='w-full h-full relative bg-[#A7C957] border border-black'
+          className='w-full h-full relative bg-[#BC4749] border border-black'
         ></animated.div>
       </animated.div>
 
@@ -86,7 +77,7 @@ export default function WorkGrid({ setCurrentGrid, animatedStyles }) {
           className='w-full h-full p-10 bg-[#386641] border border-black flex flex-col items-center justify-center gap-3'
         >
           <div className='border border-neutral-900 bg-[#F2E8CF] w-fit px-5 py-3'>
-            <span className='text-4xl font-bold text-[#BC4749]' id='home'>
+            <span className='text-5xl font-bold text-[#BC4749]' id='home'>
               {name.slice(0, nameIdx).join("")}
               <span className='inline-block mx-2 w-6 h-1 bg-[#2A9D8F] animate-pulse'></span>
             </span>
@@ -102,7 +93,7 @@ export default function WorkGrid({ setCurrentGrid, animatedStyles }) {
 
       <animated.div
         style={animatedStyles}
-        className='lg:row-span-6 lg:col-span-3'
+        className='lg:row-span-3 lg:col-span-3'
       >
         <animated.div
           style={trails[4]}
@@ -112,11 +103,21 @@ export default function WorkGrid({ setCurrentGrid, animatedStyles }) {
 
       <animated.div
         style={animatedStyles}
-        className='lg:row-span-3 lg:col-span-3'
+        className='lg:row-span-3 lg:col-span-4'
+      >
+        <animated.div
+          style={trails[5]}
+          className='w-full h-full relative bg-[#BC4749] border border-neutral-900'
+        ></animated.div>
+      </animated.div>
+
+      <animated.div
+        style={animatedStyles}
+        className='lg:row-span-3 lg:col-span-2'
       >
         <animated.div
           style={trails[4]}
-          className='w-full h-full relative bg-[#6A994E] border border-neutral-900'
+          className='w-full h-full lg:flex justify-between items-center p-10 gap-5 bg-[#A7C957] border border-black'
         ></animated.div>
       </animated.div>
     </animated.div>
